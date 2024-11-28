@@ -1,6 +1,7 @@
 import http from "http";
 import url from "url";
 import { StringDecoder } from "string_decoder";
+import config from "./config.js";
 
 // The server responds for every requests
 const server = http.createServer(function (req, res) {
@@ -66,8 +67,10 @@ const server = http.createServer(function (req, res) {
 });
 
 //  Start the server
-server.listen(3300, function () {
-  console.log("Server is listening on port: 3300");
+server.listen(config.port, function () {
+  console.log(
+    `Server is listening on port: ${config.port} in ${config.envName} environment.`
+  );
 });
 
 //  Check the server
